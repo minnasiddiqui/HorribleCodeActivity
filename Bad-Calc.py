@@ -15,7 +15,7 @@ def subtract(n1, n2):
     return a + b
 
 class UserProfile():
-    def __init(self, name):
+    def __init__(self, name):
         self.username = name
         print(f"Profile for '{self.username}' created.")
 
@@ -24,13 +24,20 @@ def do_calc (p, op, x1, x2):
         return x1 + x2
     elif op == '-':
         return x1 - x2
+    elif op == '*':
+        return x1 * x2
+    elif op == '/':
+        if x2 == 0:
+            print("Error! Cannot divide by zero.")
+            return 0
+        return x1 / x2
     else:
         return 0
 
 def run_calculator():
-    profile = UserProfile()
+    profile = UserProfile("default")
 
-    op_choice = input("Enter operation (+ or -): ")
+    op_choice = input("Enter operation (+, -, *, /): ")
 
     if op_choice == '+':
         print ("Please give two numbers for addition")
@@ -47,6 +54,25 @@ def run_calculator():
         val2 = float(input("Enter second value: "))
 
         result = do_calc(profile, '-', val1, val2)
+
+        print(f"The result is ==> {result}")
+
+
+    elif op_choice == '*':
+        print("Please give two numbers for multiplication.")
+        val1 = float(input("Enter first value: "))
+        val2 = float(input("Enter second value: "))
+
+        result = do_calc(profile, '*', val1, val2)
+
+        print(f"The result is ==> {result}")
+
+    elif op_choice == '/':
+        print("Please give two numbers for division.")
+        val1 = float(input("Enter first value: "))
+        val2 = float(input("Enter second value: "))
+
+        result = do_calc(profile, '/', val1, val2)
 
         print(f"The result is ==> {result}")
 
